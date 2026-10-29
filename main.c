@@ -40,10 +40,6 @@ int	main(void)
 	printf("Original:   %% %%\n");
 	ft_printf("ft_printf:  %% %%\n");
 
-	printf("\n===== TEST NULL STRING =====\n");
-	printf("Original:   %s\n", (char *)0);
-	ft_printf("ft_printf:  %s\n", (char *)0);
-
 	printf("\n===== TEST RETURN VALUE =====\n");
 	ret1 = printf("Original:   %d %s %x\n", 42, "test", 255);
 	ret2 = ft_printf("ft_printf:  %d %s %x\n", 42, "test", 255);

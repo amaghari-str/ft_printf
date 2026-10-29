@@ -6,7 +6,7 @@
 /*   By: amaghari <amaghari@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 16:29:04 by amaghari          #+#    #+#             */
-/*   Updated: 2026/10/29 18:48:36 by amaghari         ###   ########.fr       */
+/*   Updated: 2026/10/29 19:10:23 by amaghari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		write(1, "(null)", 7);
 	while (s[i])
 	{
 		write(fd, &s[i], 1);
