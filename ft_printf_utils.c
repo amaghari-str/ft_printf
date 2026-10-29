@@ -6,11 +6,11 @@
 /*   By: amaghari <amaghari@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 16:37:33 by amaghari          #+#    #+#             */
-/*   Updated: 2026/10/29 16:37:38 by amaghari         ###   ########.fr       */
+/*   Updated: 2026/10/29 18:45:16 by amaghari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "print.h"
 #include <limits.h>
 
 static int	ft_putnbr_arg(va_list arg, char type)
@@ -55,6 +55,7 @@ static void	ft_putnbr_fd(long n, int fd)
 static int	ft_hexdes_arg(va_list arg, char type)
 {
 	int	i;
+	unsigned long	p;
 
 	i = 0;
 	if (type == 'x')
@@ -65,13 +66,19 @@ static int	ft_hexdes_arg(va_list arg, char type)
 				 "0123456789ABCDEF");
 	else if (type == 'p')
 	{
-		ft_putstr_fd("0X", 1);
-		i = ft_putnbr_base(va_arg(arg, unsigned long), "0123456789abcdef");
+		p = va_arg(arg, unsigned long);
+		if (!p)
+		{
+			ft_putstr_fd("(nil)", 1);
+			return (5);
+		}
+		ft_putstr_fd("0x", 1);
+		i = ft_putnbr_base(p, "0123456789abcdef");
 	}
 	return i;
 }
 
-static int	tipe_detector(char type, va_list arg)
+int	tipe_detector(char type, va_list arg)
 {
 	char	*p;
 
@@ -110,7 +117,7 @@ static int	ft_putnbr_base(unsigned long nbr, char *base)
 	}
 	if (nbr >= base_len)
 		i = ft_putnbr_base(nbr / base_len, base);
-	ft_putchar_fd(base[nbr % base_len]);
+	ft_putchar_fd(base[nbr % base_len], 1);
 	i++;
 	return (i);
 }
