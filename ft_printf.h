@@ -5,6 +5,7 @@
 #include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <limits.h>
 int	ft_printf(char const *str, ...);
 int	tipe_detector(char type, va_list arg);
 int	ft_putchar_fd(char c, int fd);

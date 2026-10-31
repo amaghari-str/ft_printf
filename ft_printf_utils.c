@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
-#include <limits.h>
+#include "ft_printf.h"
 
 static int	ft_putnbr_base(unsigned long nbr, char *base)
 {
