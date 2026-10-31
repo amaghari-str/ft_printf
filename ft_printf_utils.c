@@ -13,6 +13,37 @@
 #include "print.h"
 #include <limits.h>
 
+static int	ft_putnbr_base(unsigned long nbr, char *base)
+{
+	unsigned int		base_len;
+	int		i;
+
+	i = 0;
+	base_len = 0;
+	while (base[base_len])
+		base_len++;
+	if (nbr >= base_len)
+		i = ft_putnbr_base(nbr / base_len, base);
+	ft_putchar_fd(base[nbr % base_len], 1);
+	i++;
+	return (i);
+}
+
+static void	ft_putnbr_fd(long n, int fd)
+{
+	char	c;
+
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	c = (n % 10) + '0';
+	write(fd, &c, 1);
+}
+
 static int	ft_putnbr_arg(va_list arg, char type)
 {
 	int	i;
@@ -35,21 +66,6 @@ static int	ft_putnbr_arg(va_list arg, char type)
 		i = va_arg(arg, int);
 	ft_putnbr_fd(i, 1);
 	return (ft_strlen(ft_itoa(i)));
-}
-
-static void	ft_putnbr_fd(long n, int fd)
-{
-	char	c;
-
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	if (n >= 10)
-		ft_putnbr_fd(n / 10, fd);
-	c = (n % 10) + '0';
-	write(fd, &c, 1);
 }
 
 static int	ft_hexdes_arg(va_list arg, char type)
@@ -100,25 +116,3 @@ int	tipe_detector(char type, va_list arg)
 	}
 	return 0;
 }
-
-static int	ft_putnbr_base(unsigned long nbr, char *base)
-{
-	int		base_len;
-	int		i;
-
-	i = 0;
-	base_len = 0;
-	while (base[base_len])
-		base_len++;
-	if (nbr < 0)
-	{
-		ft_putchar_fd('-', 1);
-		nbr = -nbr;
-	}
-	if (nbr >= base_len)
-		i = ft_putnbr_base(nbr / base_len, base);
-	ft_putchar_fd(base[nbr % base_len], 1);
-	i++;
-	return (i);
-}
-

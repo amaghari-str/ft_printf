@@ -12,13 +12,11 @@
 
 #include "print.h"
 
-static int	size(int n)
+static int	size(long n)
 {
 	int	size;
 
 	size = 0;
-	if (n == -2147483648)
-		n++;
 	if (n < 0)
 	{
 		n *= -1;
@@ -32,9 +30,9 @@ static int	size(int n)
 	return (size + 1);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
-	unsigned int	num;
+	long	num;
 	char			*res;
 	int				i;
 
@@ -48,7 +46,7 @@ char	*ft_itoa(int n)
 	else if (n < 0)
 	{
 		res[0] = '-';
-		num = -(unsigned int)n;
+		num = -(long)n;
 	}
 	else
 		num = n;
