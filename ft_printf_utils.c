@@ -81,7 +81,7 @@ static int	ft_hexdes_arg(va_list arg, char type)
 				 "0123456789ABCDEF");
 	else if (type == 'p')
 	{
-		p = va_arg(arg, unsigned long);
+		p = (unsigned long)va_arg(arg, void *);
 		if (!p)
 		{
 			ft_putstr_fd("(nil)", 1);
@@ -89,6 +89,7 @@ static int	ft_hexdes_arg(va_list arg, char type)
 		}
 		ft_putstr_fd("0x", 1);
 		i = ft_putnbr_base(p, "0123456789abcdef");
+		i += 2;
 	}
 	return i;
 }

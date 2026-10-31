@@ -1,6 +1,6 @@
 
 #include <stdio.h>
-#include "print.h"
+#include "ft_printf.h"
 #include <limits.h>
 
 int	main(void)
