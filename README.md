@@ -124,11 +124,8 @@ Special cases are handled explicitly: a `NULL` string prints `(null)`, a `NULL` 
 - `man 3 printf` - description of the original function and its conversions
 - `man 3 stdarg` - macros `va_start`, `va_arg`, `va_end`, `va_copy`
 - `man 2 write` - the system call used for output
-- [GNU C Library manual: Variadic Functions](https://www.gnu.org/software/libc/manual/html_node/Variadic-Functions.html)
-- [cppreference: Variadic arguments](https://en.cppreference.com/w/c/variadic)
-- [cppreference: printf, fprintf, sprintf](https://en.cppreference.com/w/c/io/fprintf)
-- [GNU Make manual](https://www.gnu.org/software/make/manual/make.html)
-
+- [video of va](https://youtu.be/oDC208zvsdg?si=DjRXCsRTn2GVrgWu)
+- [c comporaton](https://github.com/siemeris/ft_printf)
 ### Use of AI
 
 AI was used as a helper tool and not as a replacement for understanding the project. It was used for:
