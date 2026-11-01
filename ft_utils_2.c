@@ -59,7 +59,7 @@ char	*ft_itoa(long n)
 	return (res);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
 	size_t	count;
 
@@ -68,14 +68,13 @@ size_t	ft_strlen(const char *str)
 	{
 		count++;
 	}
+	free(str);
 	return (count);
 }
 
 int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
-	if (!c)
-		return (0);
 	return (1);
 }
 
@@ -85,12 +84,15 @@ int	ft_putstr_fd(char *s, int fd)
 
 	i = 0;
 	if (!s)
-		write(1, "(null)", 7);
+	{
+		write(1, "(null)", 6);
+		return 6;
+	}
 	while (s[i])
 	{
 		write(fd, &s[i], 1);
 		i++;
 	}
-	return ft_strlen(s);
+	return i;
 }
 
