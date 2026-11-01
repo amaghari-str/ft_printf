@@ -6,7 +6,7 @@
 /*   By: amaghari <amaghari@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 16:29:04 by amaghari          #+#    #+#             */
-/*   Updated: 2026/10/29 19:10:23 by amaghari         ###   ########.fr       */
+/*   Updated: 2026/11/01 15:53:12 by amaghari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	size(long n)
 
 char	*ft_itoa(long n)
 {
-	long	num;
+	long			num;
 	char			*res;
 	int				i;
 
@@ -86,13 +86,12 @@ int	ft_putstr_fd(char *s, int fd)
 	if (!s)
 	{
 		write(1, "(null)", 6);
-		return 6;
+		return (6);
 	}
 	while (s[i])
 	{
 		write(fd, &s[i], 1);
 		i++;
 	}
-	return i;
+	return (i);
 }
-
