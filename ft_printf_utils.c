@@ -6,7 +6,7 @@
 /*   By: amaghari <amaghari@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 16:37:33 by amaghari          #+#    #+#             */
-/*   Updated: 2026/11/01 15:55:55 by amaghari         ###   ########.fr       */
+/*   Updated: 2026/11/01 16:12:59 by amaghari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_putnbr_fd(long n, int fd)
 static int	ft_putnbr_arg(va_list arg, char type)
 {
 	unsigned int	j;
-	int		i;
+	int				i;
 
 	i = 0;
 	if (type == 'u')
